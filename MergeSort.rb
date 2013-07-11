@@ -9,7 +9,7 @@ class MergeSort
    mid = (size/2).round
    puts "mid is :" + mid.to_s
    
-   #this will return the sliced array into 'right' where as arrayToSort will contain
+   #this will return the sliced array into 'right' whereas arrayToSort will contain
    #the remaining part
    right = arrayToSort.slice!(mid..arrayToSort.length)    
       
