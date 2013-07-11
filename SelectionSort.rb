@@ -1,5 +1,6 @@
 class SelectionSort
 
+
   def sort(arrayToSort)
    size=arrayToSort.length
    for i in 0..size-1
@@ -23,5 +24,6 @@ class SelectionSort
    puts "After iteration " + counter.to_s + ":"
    p arrayToPrint
   end
+
 
 end
