@@ -5,6 +5,7 @@ require './SelectionSort.rb'
 require './MergeSort.rb'
 require './QuickSort.rb'
 require './HeapSort.rb'
+require './BucketSort.rb'
  
 class SortTest < Test::Unit::TestCase
     @@unsorted = [5, 2, 3, 8, 1, 3, 12, 10, 11, 6]
@@ -84,5 +85,15 @@ class SortTest < Test::Unit::TestCase
         @@unsorted = @@unsorted.shuffle
     end    
 
-   
+    def test_bucket_sort
+        puts "running test for bucket sort"
+        puts "unsorted Array"
+        p @@unsorted
+        bucket_sort = BucketSort.new 
+        result = bucket_sort.sort(@@unsorted.dup)
+        assert_equal @@sorted,result
+        puts "End of test\n\n"
+        @@unsorted = @@unsorted.shuffle
+    end  
+
 end
