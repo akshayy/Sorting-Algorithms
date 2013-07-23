@@ -6,10 +6,13 @@ require './MergeSort.rb'
 require './QuickSort.rb'
 require './HeapSort.rb'
 require './BucketSort.rb'
+require './RadixSort.rb'
  
 class SortTest < Test::Unit::TestCase
     @@unsorted = [5, 2, 3, 8, 1, 3, 12, 10, 11, 6]
+    @@unsorted_for_radix = [39,52,48,14,6,85,23,75,91,7]
     @@sorted = @@unsorted.sort
+    @@sorted_for_radix = @@unsorted_for_radix.sort
     
     def test_bubble_sort  
         puts "Running test for bubble sort"
@@ -95,5 +98,18 @@ class SortTest < Test::Unit::TestCase
         puts "End of test\n\n"
         @@unsorted = @@unsorted.shuffle
     end  
+ 
+    def test_radix_sort
+        puts "running test for radix sort"
+        puts "unsorted Array"
+        p @@unsorted_for_radix
+        radix_sort = RadixSort.new 
+        result = radix_sort.sort(@@unsorted_for_radix.dup)
+        assert_equal @@sorted_for_radix,result
+        result = radix_sort.sort(@@unsorted.dup)
+        assert_equal @@sorted,result
+        puts "End of test\n\n"
+        @@unsorted = @@unsorted.shuffle
+    end
 
 end
